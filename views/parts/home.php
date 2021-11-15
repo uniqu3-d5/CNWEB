@@ -2,7 +2,19 @@
 
 <?php $this->start("page") ?>
 
-<div class="container">
+<div class="container ">
+    <form class="mt-5" id="form-img">
+          <div class="form-group">
+            <label for="title">title</label>
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" placeholder="Enter title">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="img">Image</label>
+            <input type="file" name="file" id="img">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         <br>
         <br>
         <div class="jumbotron">
@@ -10,15 +22,6 @@
                 <h1><i class="fa fa-camera-retro"></i> Make Your Image Gallary</h1>
                 <p>Just a Gallary Full of Beautiful Images </p>
             </center>
-        </div>
-
-        <div class="portfolio-menu mt-2 mb-4">
-            <ul>
-                <li class="btn btn-outline-dark active" data-filter="*">All</li>
-                <li class="btn btn-outline-dark" data-filter=".gts">Girls T-shirt</li>
-                <li class="btn btn-outline-dark" data-filter=".lap">Laptops</li>
-                <li class="btn btn-outline-dark text" data-filter=".selfie">selfie</li>
-            </ul>
         </div>
         <div class="portfolio-item row">
             <div class="item mt-3 selfie col-lg-3 col-md-4 col-6 col-sm">
@@ -344,4 +347,44 @@
             </div>
         </center>
     </div>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 <?php $this->stop() ?>

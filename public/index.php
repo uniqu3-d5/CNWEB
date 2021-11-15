@@ -28,6 +28,9 @@ Router::post('/register', '\App\Controllers\Auth\RegisterController@register');
 Router::get('/login', 'App\Controllers\Auth\LoginController@showLoginForm');
 Router::post('/login', 'App\Controllers\Auth\LoginController@login');
 
+// 
+Router::get('/post', '\App\Controllers\PostController@getPosts');
+Router::post('/post', '\App\Controllers\PostController@createPost');
 // Router::error('\App\Controllers\Controller@notFound');
 
 Router::dispatch();
