@@ -20,6 +20,6 @@ class HomeController extends Controller{
 		$data = [
 			'posts' => Post::all()
 		];
-		echo $this->view->render('parts/home', $data);
+		echo $this->view->render('pages/home', $data);
 	}
 }

@@ -22,7 +22,7 @@ class JWT {
     {
         $verified = password_verify($credentials['password'], $user->password);
         if ($verified) {
-            JWT::generate_jwt('{"alg": "SHA256","typ": "JWT"}', array('id' => $user->id, 'role' => $user->role));
+            JWT::generate_jwt('{"alg": "SHA256","typ": "JWT"}', array('id' => $user->id));
         }
         return $verified;
     }

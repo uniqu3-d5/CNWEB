@@ -29,7 +29,10 @@ Router::get('/login', 'App\Controllers\Auth\LoginController@showLoginForm');
 Router::post('/login', 'App\Controllers\Auth\LoginController@login');
 Router::get('/logout', 'App\Controllers\Auth\LoginController@logout');
 
-// 
+// profile
+Router::get('/profile', 'App\Controllers\UserController@profile');
+
+// Post
 Router::get('/post', '\App\Controllers\PostController@getPosts');
 Router::post('/post', '\App\Controllers\PostController@createPost');
 // Router::error('\App\Controllers\Controller@notFound');
