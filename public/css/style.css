@@ -37,5 +37,20 @@ body {
 	background-color: #ecf0f1;
 	border: 1px solid #D6DBDF;
 }
+#openModal{
+	position: fixed;
+	right: 10px;
+	bottom: 20px;
+}
+.content{
+	min-height: 95vh;
+}
 
+.titleImg{
+	position: absolute;
+}
+
+footer{
+	margin-top: auto;
+}
 /* profile css */

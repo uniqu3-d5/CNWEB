@@ -22,21 +22,13 @@ class PostController extends Controller{
 
 		// Converts it into a PHP object
 		$data = json_decode($json, true);
-		// echo $json;
-		Post::create([
+		$userId = json_decode(JWT::get_data($_COOKIE['token']), true)['id'];
+		$user = User::find($userId);
+		$post = new Post([
 			'title' => $data['title'],
-			'img' => $data['img']
+			'img' => $data['img'],
 		]);
+		$user->post()->save($post);
 		echo 'ok';
-	}
-
-	public function getPosts(){
-		$posts = Post::all();
-		foreach($posts as $post){
-			echo $post->id.'<br>';		
-			echo $post->title.'<br>';
-			echo '<img class="img-fluid"
-                        src="'.$post->img.'" alt="">';				
-		}
 	}
 }

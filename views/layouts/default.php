@@ -15,7 +15,7 @@
     <!-- pop up image -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
     <!-- css link -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?v=1">
 </head>
 
 <body>
@@ -33,9 +33,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
                 </ul>
                 <!-- Left links -->
             </div>
@@ -43,19 +40,18 @@
 
             <!-- Right elements -->
             <div class="d-flex align-items-center">
-                <a href="login.html">Login</a>
                 <!-- Avatar -->
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink"
                     role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                     <img src="https://scontent.fvca1-4.fna.fbcdn.net/v/t1.6435-1/c124.0.320.320a/p320x320/49087170_2224226037903946_5596592590007828480_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_ohc=Mn6omJRn8cEAX9k6fRJ&_nc_ht=scontent.fvca1-4.fna&oh=c9ddb89a6ecb188780aba34ef57035a3&oe=61AC4455"
-                        class="rounded-circle" height="25" alt="" loading="lazy" />
+                        class="rounded-circle" height="35" alt="" loading="lazy" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     <li>
                         <a class="dropdown-item" href="profile.html">My profile</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -144,8 +140,9 @@
     <!-- BT4 -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- js link -->
-    <script src="/js/index.js"></script>
+    <script src="/js/index.js?v=2"></script>
     <!-- pop js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>

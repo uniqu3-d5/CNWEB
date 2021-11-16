@@ -52,6 +52,7 @@ class LoginController extends Controller
 
     public function logout()
     {
+        setcookie("token", "", time() - 3600);
         redirect('/login');
     }
 

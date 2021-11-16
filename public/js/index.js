@@ -10,10 +10,10 @@ const isValidImg = (img) => {
   const extensions = ["jpeg", "png", "gif", "jpg"];
   const typeImg = img.type.split("/")[1];
   if (extensions.indexOf(typeImg) === -1) {
-    return { status: false, msg: "Ảnh phải có định dạng .jpeg .png .gif .jpg" };
+    return { status: false, msg: "Image allow .jpeg .png .gif .jpg" };
   }
-  if (img.size > 150000) {
-    return { status: false, msg: "Kích thước ảnh < 150KB" };
+  if (img.size > 1000000) {
+    return { status: false, msg: "Picture is too large" };
   }
   return { status: true };
 };
@@ -29,11 +29,18 @@ $('.portfolio-menu ul li').click(function () {
     return false;
 });
 $(document).ready(function () {
-    var popup_btn = $('.popup-btn');
-    popup_btn.magnificPopup({
+    $('.popup-btn').magnificPopup({
         type: 'image',
         gallery: {
             enabled: true
+        },
+        image: {
+            // options for image content type
+            titleSrc: function(item){
+                const user = item.el[0].getAttribute('user');
+                const name = item.el[0].getAttribute('username');
+                return `<p><a class="text-primary" href="/user/${user}">@${name}</a> ${item.el[0].title}</p>`;
+            }
         }
     });
 
@@ -45,15 +52,42 @@ $(document).ready(function () {
             rs[cur.name] = cur.value;
             return rs;
         },{});
-        const base64Img = await getBase64(file);
-        formData['img'] = base64Img;
-        // console.log(formData);
-
+        let flag = true;
+        if(file){
+            const validImg = isValidImg(file);
+            if(validImg.status){
+                const base64Img = await getBase64(file);
+                formData['img'] = base64Img;
+            }else{
+            $('#error').text(validImg.msg);
+            }
+        }else{
+            flag = false;
+            $('#error').text("Chose your picture you want to upload");
+        }
+        if(!formData.title){
+            flag = false;
+            $('#error').text('Title cannot blank');
+        }
         $.ajax({
             url: '/post',
             type: "POST",
             data: JSON.stringify(formData)
-        }).done((res) => console.log(res));
+        }).done(() => location.reload());
+    });
+
+    $('#openModal').click(function(){
+        $($(this).attr('data-target')).modal('show');
+    });
+
+    $('.close-modal').click(function(){
+        console.log('close')
+        $($(this).attr('data-dismiss')).modal('hide');
+    });
+
+    $('#img').change(async function(){
+        const img_src = await getBase64($('#img')[0].files[0]);
+        $('#preview').attr('src', img_src);
     })
 });
 

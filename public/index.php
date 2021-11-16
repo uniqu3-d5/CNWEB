@@ -20,13 +20,14 @@ if (! ob_get_level()) {
 
 // Home 
 Router::get('/','\App\Controllers\HomeController@viewHome');
-Router::get('/home', function(){echo 'Home';});
+Router::get('/home', '\App\Controllers\HomeController@viewHome');
 
 // Auth
 Router::get('/register', '\App\Controllers\Auth\RegisterController@showRegisterForm');
 Router::post('/register', '\App\Controllers\Auth\RegisterController@register');
 Router::get('/login', 'App\Controllers\Auth\LoginController@showLoginForm');
 Router::post('/login', 'App\Controllers\Auth\LoginController@login');
+Router::get('/logout', 'App\Controllers\Auth\LoginController@logout');
 
 // 
 Router::get('/post', '\App\Controllers\PostController@getPosts');

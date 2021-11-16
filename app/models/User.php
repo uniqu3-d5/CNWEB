@@ -10,6 +10,10 @@ class User extends Model
     protected $fillable = ['name', 'email', 'password', 'role'];
     protected $errors = [];
 
+    public function post(){
+        return $this->hasMany('App\Models\Post');
+    }
+
     public function validate(array $data)
     {
         if (! $data['email']) {
