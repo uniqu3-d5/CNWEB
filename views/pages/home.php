@@ -1,14 +1,14 @@
-<?php $this->layout("layouts/default", ["title" => APPNAME]) ?>
+<?php $this->layout("layouts/default", ["title" => APPNAME, "user" => $user]) ?>
 
 <?php $this->start("page") ?>
 
 <div class="container content">
-    <button type="button" class="btn btn-primary" id="openModal" data-toggle="modal" data-target="#addPictureModal">
+    <button type="button" class="btn btn-primary btn-modal" id="openModal" data-toggle="modal" data-target="#addPictureModal">
         Add new picture
     </button>
         <br>
         <br>
-        <div class="jumbotron">
+        <div class="jumbotron mb-2">
             <center>
                 <h1><i class="fa fa-camera-retro"></i> Make Your Image Gallary</h1>
                 <p>Just a Gallary Full of Beautiful Images </p>
@@ -16,12 +16,10 @@
         </div>
         <div class="portfolio-item row">
         <?php foreach ($posts as $post): ?>
-            <div class="item mt-3 selfie col-lg-3 col-md-4 col-6 col-sm">
+            <div class="col col-lg-4 col-md-6 col-xl-3 col-12 mb-2">
                 <a href="<?= $this->e($post->img) ?>" title="<?= $this->e($post->title) ?>" user="<?=$this->e($post->user->id)?>" username="<?=$this->e($post->user->name)?>"
                     class="fancylight popup-btn" data-fancybox-group="light">
-                    <img class="img-fluid"
-                        src="<?= $this->e($post->img) ?>"
-                        alt="">
+                    <img class="img-fluid w-100" style="max-height: 200px;" src="<?= $this->e($post->img) ?>" alt="">
                 </a>
             </div>
         <?php endforeach ?>

@@ -59,6 +59,7 @@ $(document).ready(function () {
                 const base64Img = await getBase64(file);
                 formData['img'] = base64Img;
             }else{
+            flag = false;
             $('#error').text(validImg.msg);
             }
         }else{
@@ -69,17 +70,21 @@ $(document).ready(function () {
             flag = false;
             $('#error').text('Title cannot blank');
         }
-        $.ajax({
-            url: '/post',
-            type: "POST",
-            data: JSON.stringify(formData)
-        }).done(() => location.reload());
+        if(flag) {
+            $.ajax({
+                url: '/post',
+                type: "POST",
+                data: JSON.stringify(formData)
+            }).done(() => location.reload());
+        }
     });
 
     $('#openModal').click(function(){
         $($(this).attr('data-target')).modal('show');
     });
-
+    $('#editProfile').click(function(){
+        $($(this).attr('data-target')).modal('show');
+    });
     $('.close-modal').click(function(){
         console.log('close')
         $($(this).attr('data-dismiss')).modal('hide');
@@ -88,6 +93,48 @@ $(document).ready(function () {
     $('#img').change(async function(){
         const img_src = await getBase64($('#img')[0].files[0]);
         $('#preview').attr('src', img_src);
-    })
+    });
+
+    $('.del-picture').click(function(){
+        if(confirm('Are you sure to delete this picture')){
+            $.ajax({
+                url: '/post/' + $(this).attr('data-id'),
+                type: 'DELETE',
+            }).done(() => location.reload());
+        }
+    });
+
+    $('#editProfileForm').submit(async function(e){
+        e.preventDefault();
+        const file = $('#avt')[0].files[0];
+        const rawFormData = $("#editProfileForm").serializeArray();
+        const formData = rawFormData.reduce((rs, cur) => {
+            rs[cur.name] = cur.value;
+            return rs;
+        },{});
+        let flag = true;
+        if(file){
+            const validImg = isValidImg(file);
+            if(validImg.status){
+                const base64Img = await getBase64(file);
+                formData['img'] = base64Img;
+            }else{
+            flag = false;
+            $('#error-profile').text(validImg.msg);
+            }
+            console.log(validImg);
+        }        
+        if(!formData.name){
+            flag = false;
+            $('#error-profile').text('Name cannot blank');
+        }
+        if(flag) {
+            $.ajax({
+                url: '/profile',
+                type: "PUT",
+                data: JSON.stringify(formData)
+            }).done((res) => console.log(res));
+        }
+    });
 });
 

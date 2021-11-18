@@ -31,4 +31,7 @@ class PostController extends Controller{
 		$user->post()->save($post);
 		echo 'ok';
 	}
+	public function delete($id){
+		Post::destroy($id);
+	}
 }

@@ -17,8 +17,10 @@ class HomeController extends Controller{
 	}
 
 	public function viewHome(){		
+		$id = json_decode(JWT::get_data($_COOKIE['token']), true)['id'];
 		$data = [
-			'posts' => Post::all()
+			'posts' => Post::all(),
+			'user' => User::find($id),
 		];
 		echo $this->view->render('pages/home', $data);
 	}

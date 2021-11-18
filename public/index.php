@@ -31,10 +31,13 @@ Router::get('/logout', 'App\Controllers\Auth\LoginController@logout');
 
 // profile
 Router::get('/profile', 'App\Controllers\UserController@profile');
+Router::put('/profile', 'App\Controllers\UserController@edit');
+Router::get('/user/(:num)', 'App\Controllers\UserController@user');
 
 // Post
 Router::get('/post', '\App\Controllers\PostController@getPosts');
 Router::post('/post', '\App\Controllers\PostController@createPost');
+Router::delete('/post/(:num)', '\App\Controllers\PostController@delete');
 // Router::error('\App\Controllers\Controller@notFound');
 
 Router::dispatch();

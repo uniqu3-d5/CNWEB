@@ -43,13 +43,9 @@ class RegisterController extends Controller
             // Dữ liệu hợp lệ...
             $this->createUser($data);
             $messages = ['success' => 'User has been created successfully.'];
-            // redirect('/login', ['messages' => $messages]);
-            print_r($messages);
+            redirect('/login');
         }
-
-        // Dữ liệu không hợp lệ...
-        // redirect('/register', ['errors' => $user->getErrors()]);
-        print_r($user->getErrors());
+        require_once ROOTDIR.'/views/Auth/login.php';
     }
 
     protected function getUserData()
