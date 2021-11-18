@@ -133,7 +133,7 @@ $(document).ready(function () {
                 url: '/profile',
                 type: "PUT",
                 data: JSON.stringify(formData)
-            }).done((res) => console.log(res));
+            }).done(() => location.reload());
         }
     });
 });

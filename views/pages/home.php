@@ -19,7 +19,7 @@
             <div class="col col-lg-4 col-md-6 col-xl-3 col-12 mb-2">
                 <a href="<?= $this->e($post->img) ?>" title="<?= $this->e($post->title) ?>" user="<?=$this->e($post->user->id)?>" username="<?=$this->e($post->user->name)?>"
                     class="fancylight popup-btn" data-fancybox-group="light">
-                    <img class="img-fluid w-100" style="max-height: 200px;" src="<?= $this->e($post->img) ?>" alt="">
+                    <img class="img-fluid w-100" style="height: 200px;" src="<?= $this->e($post->img) ?>" alt="">
                 </a>
             </div>
         <?php endforeach ?>
