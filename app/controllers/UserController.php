@@ -31,6 +31,7 @@ class UserController extends Controller{
 			redirect('/profile');
 		}
 		$data = [
+			'curUser' => User::find($id),
 			'user' => User::find($idUser),
 			'posts' => User::find($idUser)->post()->orderBy('id', 'desc')->get()
 		];

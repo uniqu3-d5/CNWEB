@@ -1,4 +1,4 @@
-<?php $this->layout("layouts/default", ["title" => APPNAME, 'user' => $user]) ?>
+<?php $this->layout("layouts/default", ["title" => APPNAME, 'user' => $curUser]) ?>
 
 <?php $this->start("page") ?>
 <main class="h-100 gradient-custom-2 content">
